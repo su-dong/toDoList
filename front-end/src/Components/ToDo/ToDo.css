@@ -1,0 +1,40 @@
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 10px;
+}
+
+.card{
+    display: flex;
+    flex: auto;
+    margin-bottom: 15px;
+    height: 100px;
+}
+
+.time{
+    width: 20%;
+    text-align: center;
+    height:fit-content;
+    font-size: xx-large;
+    
+}
+
+.description{
+    width: 70%;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.btn{
+    width: 10%;
+    height: 50%;
+    margin-top: auto;
+}
+
+.todo{
+    background-color: bisque;
+    border: 2mm ridge rgba(211, 220, 50, .6);
+    margin-bottom: 10px;
+}
+
