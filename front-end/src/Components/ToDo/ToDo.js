@@ -1,22 +1,41 @@
 import React from 'react'
 import "./ToDo.css"
 
-export default function ToDo() {
+export default function ToDo(props) {
+
+
+  const handleClick = (e)=>{
+    let localEvent = JSON.parse(localStorage.getItem('todos'));
+
+    console.log(localEvent);
+
+    let newEvent =[];
+
+    for(var i = 0; i < localEvent.length; i++){
+      let item = localEvent[i];
+      if(JSON.stringify(item) === JSON.stringify({title:props.title, time:props.time, description:props.description})){
+        console.log("delete")
+      }
+      else{
+        newEvent.push(item)
+      }
+
+    }
+
+    localStorage.setItem("todos", JSON.stringify(newEvent));
+    props.deleted();
+
+  }
+
   return (
     <div className='todo'>
-        <div className='title'>this is title</div>
+        <div className='title'>{props.title}</div>
         <div className='card'>
-            <div className='time'>20 min</div>
+            <div className='time'>{props.time} min</div>
             <div className='description'>
-                study study study study study 
-                study study study study study 
-                study study study study study 
-                study study study study study 
-                study study study study study 
-                study study study study study 
-                study study study study study 
+                {props.description}
                 </div>
-            <button className='btn'>Delete</button>
+            <button onClick={handleClick} className='btn'>Delete</button>
         </div>
     </div>
   )
