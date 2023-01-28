@@ -1,25 +1,20 @@
 import React, { useState } from 'react'
 import ToDo from '../ToDo/ToDo'
+import Adding from '../Adding/Adding';
 import "./Board.css"
 
 
-export const eventList =[
-  {title:"study", time:'20', description:"study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study"},
-  {title:"study2", time:'200', description:"study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study study"}
-];
+export const eventList =[{title:"This is an example", time:"x", 
+      description:"Here displays a description of the thing to do. Please click delete button to delete this example."}];
 
 localStorage.setItem("todos", JSON.stringify(eventList));
 
 let newEvent = JSON.parse(localStorage.getItem('todos'));
-console.log("rerender");
 
 export default function Board() {
 
   const [change, setChange] = useState(true);
   
-  
-
-
   const eventDeleted = ()=>{
     newEvent = JSON.parse(localStorage.getItem('todos'));  
     
@@ -34,16 +29,18 @@ export default function Board() {
   }
 
 
-
   return (
-    <div className='board'>
-        {newEvent.map((item, index) => <ToDo
-            key ={index} 
-            title={item.title}
-            time={item.time}
-            description={item.description}
-            deleted ={eventDeleted} 
-            />)}
+    <div>
+      <Adding changed ={eventDeleted}/>
+      <div className='board'>
+          {newEvent.map((item, index) => <ToDo
+              key ={index} 
+              title={item.title}
+              time={item.time}
+              description={item.description}
+              deleted ={eventDeleted} 
+              />)}
+      </div>
     </div>
   )
 }

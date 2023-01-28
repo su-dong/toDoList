@@ -1,5 +1,6 @@
 import React from 'react'
 import "./ToDo.css"
+import {RiDeleteBin6Line} from 'react-icons/ri'
 
 export default function ToDo(props) {
 
@@ -31,11 +32,11 @@ export default function ToDo(props) {
     <div className='todo'>
         <div className='title'>{props.title}</div>
         <div className='card'>
-            <div className='time'>{props.time} min</div>
+            <div className='time'>{props.time} <hr></hr>Min</div>
             <div className='description'>
                 {props.description}
                 </div>
-            <button onClick={handleClick} className='btn'>Delete</button>
+            <button onClick={handleClick} className='btn'><RiDeleteBin6Line/></button>
         </div>
     </div>
   )
